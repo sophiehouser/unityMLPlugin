@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97112308}
   m_Layer: 0
-  m_Name: TrainingArea
+  m_Name: MLObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97112307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3639565, y: -30.48544, z: 18.243105}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 878926990}
@@ -268,8 +268,8 @@ GameObject:
   - component: {fileID: 619256316}
   - component: {fileID: 619256315}
   m_Layer: 0
-  m_Name: Target
-  m_TagString: Untagged
+  m_Name: Goal
+  m_TagString: goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -645,8 +645,9 @@ GameObject:
   - component: {fileID: 878926989}
   - component: {fileID: 878926988}
   - component: {fileID: 878926987}
+  - component: {fileID: 878926991}
   m_Layer: 0
-  m_Name: Floor
+  m_Name: TrainingArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -728,6 +729,20 @@ Transform:
   m_Father: {fileID: 97112308}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &878926991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 878926986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a8a134ad30b4c5a9251206e44fdeb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeAgent: {fileID: 1636549842}
+  goal: {fileID: 619256314}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,22 +968,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6108142f46fd6469eaea532d40ffbaba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PolicyFactory: {fileID: 0}
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  m_Reward: 0
-  m_CumulativeReward: 0
-  m_RequestAction: 0
-  m_RequestDecision: 0
-  m_StepCount: 0
-  m_CompletedEpisodes: 0
-  m_EpisodeId: 0
-  m_Initialized: 0
-  rBody: {fileID: 0}
-  Target: {fileID: 0}
-  speed: 10
+  moveSpeed: 5
+  turnSpeed: 180
 --- !u!54 &1636549843
 Rigidbody:
   m_ObjectHideFlags: 0

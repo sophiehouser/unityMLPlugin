@@ -29,7 +29,7 @@ public class CubeAgent : Agent
     /// When the agent collides with something, take action
     private void OnCollisionEnter(Collision collision) 
     {
-        if (collision.transform.CompareTag("target")) {
+        if (collision.transform.CompareTag("goal")) {
             hasTargetCollision = true;
             // TODO:
             // Remove collision.gameObject
