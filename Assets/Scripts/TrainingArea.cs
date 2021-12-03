@@ -9,6 +9,7 @@ public class TrainingArea : MonoBehaviour
     public GameObject goal;
     private List<GameObject> goalList;
     
+    // Gets the closest goal to the agent
     private GameObject GetClosestGoal(List<GameObject> goalList)
     {
         GameObject closestGoal = null;
@@ -28,21 +29,24 @@ public class TrainingArea : MonoBehaviour
         return closestGoal;
     }  
 
+    // Removes specified goal
     public void RemoveSpecificGoal(GameObject goalObject)
     {
         goalList.Remove(goalObject);
         Destroy(goalObject);
     }
 
+    // Gets random point in hard coded training area
+    // TODO: dynamically get bounds of TrainingArea, or make hard coded numbers more readable
     public static Vector3 GetRandomPointInTrainingArea() {
-        // TODO: dynamically get bounds of TrainingArea, or make hard coded numbers more readable
         return new Vector3(
             Random.Range(-6.6f, 11.3f),
             1.48f,
-            Random.Range( -7.2f, 10.7f)
+            Random.Range(-7.2f, 10.7f)
         );
     }
 
+    // Spawns a random number (max 20) of goals
     private void SpawnGoals()
     {
         var goalCount = Random.Range(0, 20);
@@ -61,22 +65,26 @@ public class TrainingArea : MonoBehaviour
         }
     }
 
+    // Randomly places agent in the training area
     private void PlaceCubeAgent()
     {
         cubeAgent.transform.position = GetRandomPointInTrainingArea();
     }
 
+    // Resets the agent and goals in the training area
     public void ResetArea()
     {
         PlaceCubeAgent();
         SpawnGoals();
     }
 
+    // Gets remaining goal count
     public int GoalsRemaining
     {
         get { return goalList.Count; }
     }
 
+    // Initalizes the training area
     private void Start()
     {
         goalList = new List<GameObject>();

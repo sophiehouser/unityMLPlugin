@@ -19,7 +19,6 @@ public class CubeAgent : Agent
     public override void Initialize()
     {
         base.Initialize();
-        Debug.Log("initialize");
         trainingArea = GetComponentInParent<TrainingArea>();
         rigidbody = GetComponent<Rigidbody>();
     }
