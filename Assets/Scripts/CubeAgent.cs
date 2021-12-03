@@ -8,6 +8,7 @@ using Unity.MLAgents.Actuators;
 
 public class CubeAgent : Agent
 {
+    private TrainingArea trainingArea;
     new private Rigidbody rigidbody;
 
     private bool hasTargetCollision;
@@ -18,22 +19,28 @@ public class CubeAgent : Agent
     public override void Initialize()
     {
         base.Initialize();
+        Debug.Log("initialize");
+        trainingArea = GetComponentInParent<TrainingArea>();
         rigidbody = GetComponent<Rigidbody>();
     }
 
     public override void OnEpisodeBegin()
     {
         hasTargetCollision = false;
-    }    
+        trainingArea.ResetArea();
+    }  
 
     /// When the agent collides with something, take action
     private void OnCollisionEnter(Collision collision) 
     {
         if (collision.transform.CompareTag("goal")) {
             hasTargetCollision = true;
-            // TODO:
-            // Remove collision.gameObject
-            // AddReward(1f);
+            trainingArea.RemoveSpecificGoal(collision.gameObject);
+            AddReward(1f);
+
+            if (trainingArea.GoalsRemaining <= 0) {
+                EndEpisode();
+            }
         }
     }
 
