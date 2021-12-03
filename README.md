@@ -5,10 +5,11 @@ I ran into a bug, specified in **Known Bugs** below, and I didn't have time to f
 
 This is the coding challenge for Phantasma Labs as specified [here](https://gist.github.com/meiemari/30d273573b0ef33aa42faeb8ac3fb47b).
 
-## Classes
-- **TrainingArea** - The script associated with the floor of the training area. Takes care of spawning, removing, placing and keeping track of goals and the agent. 
 
-- **CubeAgent** - The script associated with the blue cube agent. Includes all logic for the agent. 
+## Classes
+- **Scripts/TrainingArea** - The script associated with the floor of the training area. Takes care of spawning, removing, placing and keeping track of goals and the agent. 
+
+- **Scripts/CubeAgent** - The script associated with the blue cube agent. Includes all logic for the agent. 
 
 ## Known Bugs
 - It seems like Unity cannot find the TrainingArea file. I think something might have gone wrong when I moved the *TrainingArea* file from the */Assets* folder into a sub */Scripts* folder. This is causing a *NullReferenceError* when the *CubeAgent* tries to refer to the *TrainingArea* and an error running tests as well. 
